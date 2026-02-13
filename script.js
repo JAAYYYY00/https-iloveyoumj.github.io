@@ -48,35 +48,17 @@ input.addEventListener('input', () => {
     
 });
 
-let currentSlideIndex = 0;
-const slides = document.querySelectorAll('.slide');
-const dots = document.querySelectorAll('.dot');
-const slider = document.querySelector('.slider');
+var myIndex = 0;
+carousel();
 
-function showSlide(index) {
-    currentSlideIndex = index;
-    slider.style.transform = `translateX(-${index * 100}%)`;
-    dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === index);
-    });
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 9000);    
 }
-
-function nextSlide() {
-    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
-    showSlide(currentSlideIndex);
-}
-
-function prevSlide() {
-    currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
-    showSlide(currentSlideIndex);
-}
-
-function currentSlide(index) {
-    showSlide(index);
-}
-
-// Auto-play slideshow
-setInterval(nextSlide, 3000); // Change slide every 3 seconds
-
-// Initialize
-showSlide(currentSlideIndex);
