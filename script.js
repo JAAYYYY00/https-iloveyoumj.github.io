@@ -48,24 +48,35 @@ input.addEventListener('input', () => {
     
 });
 
-let currentSlide = 0;
+let currentSlideIndex = 0;
 const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+const slider = document.querySelector('.slider');
 
 function showSlide(index) {
-    slides.forEach((slide, i) => {
-        slide.classList.toggle('active', i === index);
+    currentSlideIndex = index;
+    slider.style.transform = `translateX(-${index * 100}%)`;
+    dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
     });
 }
 
 function nextSlide() {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
+    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+    showSlide(currentSlideIndex);
 }
 
 function prevSlide() {
-    currentSlide = (currentSlide - 1 + slides.length) % slides.length;
-    showSlide(currentSlide);
+    currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+    showSlide(currentSlideIndex);
 }
 
+function currentSlide(index) {
+    showSlide(index);
+}
+
+// Auto-play slideshow
+setInterval(nextSlide, 3000); // Change slide every 3 seconds
+
 // Initialize
-showSlide(currentSlide);
+showSlide(currentSlideIndex);
