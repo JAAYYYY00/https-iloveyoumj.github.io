@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Title</title>
+        <link rel="stylesheet" href="styles.css" />
+        <script src="script.js"></script>
+    </head>
+    <body>
+    <header>
+    <ul class="menu">
+      <a href="home.html" class="maintitle">ILY</a>
+      <li class="menuli"><a href="home.html" class="nav1">Home</a></li>
+      <li class="menuli"><a href="#galleryTitle " class="nav2">Gallery</a></li>
+      <li class="menuli"><a href="#musicTitle" class="nav3">Music</a></li>
+      <li class="menuli"><a href="link4" class="nav3">Letter</a></li>
+    </ul>
+  </header> 
+      <div class="letterContainer">
+<p id="letter"></p>
+<button onclick="typeWriter()" id="speedBtn">Click to speed up</button>
+      </div>
+<script>
+var i = 0;
+// Paste your full text inside these backticks (`)
+var txt = `Hello, baby!
+
+Alam mo ba, we are currently at 679 days of love since april 3, 2024. First of all, I wanna express my gratitude towards you for being with me in all seasons of my life. Thank you for being always there when I needed you. Walang hanggang pasasalamat sa pagiging maintindihin at mapagpasyensya.
+
+Kung tatanungin ako sa kung anong pakiramdam ang hanggang ngayon ay naguguluhan ako, ito ay ang pag-ibig. Dahil sa paanong ang isang taong walang hilig sa pagsusulat nang napakahaba ay kasalukuyang nagsusulat ng liham alang-alang sa kaniyang minamahal. Love is indeed confusing, right? Naalala ko noong nagsisimula pa lang tayo, naroon ang takot sa aking loob, na baka nabigla ka lang ng pagtingin sa akin, na isang araw bigla mo na lamang mapagtanto na nagkakamali ka lamang ng nararamdaman sa akin. Kaya una pa lang sinabi ko na sa iyo na baka nga, baka nga nagkakamali ka lang ng pagtingin sa katulad ko. Hindi naman kasi ako ganoong may itsura, ni hindi masipag pagdating sa akademiko katulad ng iba. Ngunit, nahuhuli ko ang aking sariling nakangiti bawat gabing kausap kita.
+
+Dumaan ang mga araw, lumalim ang nararamdaman ko, naging malakas ang loob, naging mas kumpiyansa at sigurado sa aking nararamdaman. Napagtanto kong ayon pala ang pagmamahal, kaya kang buuin sa sobrang hindi maipaliwanag na pamamaraan. Kung tatanungin ako ano ang pagmamahal, ito ay ang patuloy na pagtanggap sa bawat mong kapintasan at kakulangan. Ang patuloy na pag-unawa sa bawat sitwasyon at nararamdaman ng bawat isa. Napakasarap ng pagmamahal, maihahanlintulad ito sa paghele ng iyong ina hanggang sa makatulog ka — payapa, magaan, at may seguridad.
+
+Sa bawat kong dasal kalakip nito ang iyong kaligtasan, kagalingan, at kapayaan sa buo ninyong pamilya. Nagpapasalamat ako sa Panginoon sa pagkakataong makaramdam ng pagmamahal galing sa iyo. Na pinahintulutan niya kahilingan kong patunayan sa iyo ang pagmamahal ko. Only God knows how much I love you, siya ang tanging nakakaintindi sa kung anong kapayapaan ang mayroon ako sa tuwing hagkan mo ako sa dalawa mong mga braso. Ang bawat mong dampi ng kamay sa aking mukha. Sa bawat mong pagsundot ng aking baywang na may intensyong ako ay makiliti.
+
+Lamang ang aking galak na nararamdaman kumpara sa iyo sa bawat mong katagumpayang nakakamit. Hindi ko man madalas masambit ang ang salitang pagbati sa iyo, ako ang tahimik mong tagasubaybay sa pinakamaliit mong panalo. Ako ang siguradong mas nagagalak sa bawat mong ngiti. Kung mayroon man akong paboritong mong ekspreson, ito ay ang iyong pagtawa, kahalintulad ng isang musikang binuo ng isang mahusay na manunulat.
+
+Noong panahong nakilala kita hindi naman ako kasalukuyang naghahanap ng pagmamahal. But despite, you give me something I didn't know I needed. Salamat muli sa walang kapalit mong pagmamahal ma ibinibigay sa akin. Sa kabila nang mga kakulangan, nananatili kang nariyan. I really don't know what I did to be this lucky to have you i my life. But I grateful to God for letting me crossed path with you.
+
+Sa aking pagtatapos, nais kong ipabatid ang walang hanggang pagmamahal ko sa iyo. Mahal na mahal kita higit sa kayang ilarawan ng mga salitang maaaring maisulat ng pinakamahusay na awtor sa kasalukuyan maging sa buong kasaysayan. Palagi kang magiging kalakip ng bawat kong panalangin. Samalat sa Panginoon, mayroon akong ikaw na nandiyan kailangan ko man o hindi. Mahal kita.`;
+
+var speed = 100; // Slightly faster since the text is long
+
+function typeWriter() {
+  if (i < txt.length) {
+    let char = txt.charAt(i);
+    let container = document.getElementById("letter");
+
+    if (char === "\n") {
+      container.innerHTML += "<br>";
+    } else {
+      container.innerHTML += char;
+    }
+
+    i++;
+    // AUTO-SCROLL: Keeps the latest text in view
+    window.scrollTo(0, document.body.scrollHeight);
+    
+    setTimeout(typeWriter, speed);
+  }
+}
+
+// Start the animation
+typeWriter();
+</script>
+    </body>
+</html>
